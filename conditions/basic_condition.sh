@@ -1,7 +1,7 @@
 #! /bin/bash
 
 
-echo "ENter a number--> "
+echo "Enter a number--> "
 read num
 
 if((num %2==0)); then
