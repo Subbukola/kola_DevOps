@@ -13,6 +13,6 @@ if [$? -eq 0]; then
     echo "status code $?, means successfull"
 
 else
-    echo ' exit code $? means failure'
+    echo "exit code $? means failure"
 
 fi
