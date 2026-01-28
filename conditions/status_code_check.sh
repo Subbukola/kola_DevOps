@@ -14,5 +14,6 @@ if [$? -eq 0]; then
 
 else
     echo "exit code $? means failure"
+    exit 1
 
 fi
