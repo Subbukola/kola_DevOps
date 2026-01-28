@@ -3,9 +3,9 @@
 echo " enter number"
 read num
 
-if ((num -gt 20)); then
+if ((num > 20)); then
     echo " $num is greater than 20 "
-elif ((num -eq 20 )); then
+elif [num -eq 20 ]; then
     echo " $num is equal to 20 "
 else    
     echo " $num is less than 20 "
