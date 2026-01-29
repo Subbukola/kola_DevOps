@@ -2,8 +2,6 @@
 directory="/var/log/scrip-logs"
 file_path=$directory"/$0.sh"
 status=$?
-echo "Enter package names"
-read package
 
 uid=$(id -u)
 
@@ -26,14 +24,16 @@ fi
 
 }
 
-for $package in $@
+for package in $@
 do
     dnf install  $package -y &>>$file_path
-    validate $status "Installing $package " 
+    validate $status "Installing $package "   
 
 done
 
 
+dnf install  nginx -y &>>$file_path
+validate $status "Installing nginx "
 #status=$?
 
 #output--> sudo less /path.sh
