@@ -7,10 +7,11 @@ if ((uid !=0)); then
     exit 1
 fi
 
-dnf install  docker -y
+
 status=$?
 
-if ((status !=0)); then
+validate(){
+    if ((status !=0)); then
     echo "exit code $status, means failure"
     exit 1
 
@@ -18,15 +19,13 @@ else
     echo "status code $status, means successfull"
 
 fi
+
+}
+
+
+dnf install  docker -y
+validate $status "Installing docker" 
 
 dnf install  nginx -y
-status=$?
-
-if ((status !=0)); then
-    echo "exit code $status, means failure"
-    exit 1
-
-else
-    echo "status code $status, means successfull"
-
-fi
+validate $status "Installing nginx "
+#status=$?
