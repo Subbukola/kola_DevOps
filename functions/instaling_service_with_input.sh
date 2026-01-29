@@ -8,18 +8,18 @@ if ((uid !=0)); then
 fi
 
 
-status=$?
+#status=$?
 echo "enter servicename:->"
 read servicename
 
 
 validate(){
-    if ((status !=0)); then
-    echo "exit code $status, means failure"
+    if (($? !=0)); then
+    echo "exit code $1, means $2 is failed"
     exit 1
 
 else
-    echo "status code $status, means successfull"
+    echo "status code $1, means $2 successfull"
 
 fi
 
@@ -27,7 +27,7 @@ fi
 
 
 dnf install  $servicename -y
-validate $status "Installing docker" 
+validate $? "Installing docker" 
 
 #dnf install  nginx -y
 #validate $status "Installing nginx "
