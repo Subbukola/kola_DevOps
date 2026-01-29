@@ -36,7 +36,7 @@ do
         echo "$package is already installed"  
     fi
 
-
+done
 dnf install  nginx -y &>>$file_path
 validate $status "Installing nginx "
 #status=$?
