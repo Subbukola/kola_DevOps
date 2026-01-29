@@ -32,11 +32,9 @@ do
         dnf install  $package -y &>>$file_path
         validate $status "Installing $package "   
 
-
-     else
+    else
         echo "$package is already installed"  
-    
-done
+    fi
 
 
 dnf install  nginx -y &>>$file_path
