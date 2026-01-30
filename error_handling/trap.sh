@@ -5,7 +5,7 @@ file_path=$directory"/$0.log"
 #echo "executing"
 
 set -e # checks error . if found it will exit. return error code ERR to kernal in background
-trap 'eho "error at $LINENO  and command --> $BASH_COMMAND ' ERR
+trap 'echo "error at $LINENO  and command --> $BASH_COMMAND" ' ERR
 
 uid=$(id -u)
 
