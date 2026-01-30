@@ -8,13 +8,13 @@ if ((uid !=0)); then
 fi
 
 dnf install  docker -y
-status=$?
+#status=$?
 
-if ((status !=0)); then
-    echo "exit code $status, means failure"
+if (($? !=0)); then
+    echo "exit code $?, means failure"
     exit 1
 
 else
-    echo "status code $status, means successfull"
+    echo "status code $?, means successfull"
 
 fi

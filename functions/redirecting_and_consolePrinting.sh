@@ -1,7 +1,7 @@
 #! /bin/bash
 directory="/var/log/scrip-logs"
-file_path=$directory"/$0.sh"
-status=$?
+file_path=$directory"/$0.log"
+#status=$?
 
 uid=$(id -u)
 
@@ -13,12 +13,12 @@ mkdir -p $directory
 
 
 validate(){
-    if ((status !=0)); then
-    echo "exit code $status, means failure" | tee -a $file_path
+    if (($? != 0)); then
+    echo "exit code $?, means failure" | tee -a $file_path
     exit 1
 
 else
-    echo "status code $status, means successfull" | tee -a $file_path
+    echo "status code $?, means successfull" | tee -a $file_path
 
 fi
 
@@ -26,10 +26,10 @@ fi
 
 
 dnf install  docker -y &>>$file_path
-validate $status "Installing docker" 
+validate $? "Installing docker" 
 
 dnf install  nginx -y &>>$file_path
-validate $status "Installing nginx "
+validate $? "Installing nginx "
 #status=$?
 
 #output--> sudo less /path.sh

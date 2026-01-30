@@ -8,15 +8,15 @@ if ((uid !=0)); then
 fi
 
 
-status=$?
+#status=$?
 
 validate(){
-    if ((status !=0)); then
-    echo "exit code $status, means failure"
+    if (($? !=0)); then
+    echo "exit code $?, means failure"
     exit 1
 
 else
-    echo "status code $status, means successfull"
+    echo "status code $?, means successfull"
 
 fi
 
@@ -24,8 +24,8 @@ fi
 
 
 dnf install  docker -y
-validate $status "Installing docker" 
+validate $? "Installing docker" 
 
 dnf install  nginx -y
-validate $status "Installing nginx "
+validate $? "Installing nginx "
 #status=$?

@@ -1,7 +1,7 @@
 #! /bin/bash
 directory="/var/log/scrip-logs"
 file_path=$directory"/$0.sh"
-status=$?
+#status=$?
 
 uid=$(id -u)
 
@@ -13,12 +13,12 @@ mkdir -p $directory
 
 
 validate(){
-    if ((status !=0)); then
-    echo "exit code $status, means failure" | tee -a $file_path
+    if (($? !=0)); then
+    echo "exit code $?, means failure" | tee -a $file_path
     exit 1
 
 else
-    echo "status code $status, means successfull" | tee -a $file_path
+    echo "status code $?, means successfull" | tee -a $file_path
 
 fi
 
@@ -27,10 +27,10 @@ fi
 for package in $@
 do
     dnf list installed $package &>>$file_path
-    if ($? !=0); then
+    if (($? !=0)); then
         echo "$package is not installed"   
         dnf install  $package -y &>>$file_path
-        validate $status "Installing $package "   
+        validate $? "Installing $package "   
 
     else
         echo "$package is already installed"  
@@ -38,7 +38,7 @@ do
 
 done
 dnf install  nginx -y &>>$file_path
-validate $status "Installing nginx "
+validate $? "Installing nginx "
 #status=$?
 
 #output--> sudo less /path.sh
