@@ -3,7 +3,7 @@ directory="/var/log/scrip-logs"
 file_path=$directory"/$0.log"
 #status=$?
 echo "executing"
-set -e # checks error . if found it will exit. return error code ERR to kernal in background
+#set -e # checks error . if found it will exit. return error code ERR to kernal in background
 uid=$(id -u)
 
 
@@ -39,8 +39,8 @@ do
     fi
 
 done
-#dnf install $package -y &>>$file_path
-#validate $status "Installing nginx "
+dnf install $package -y &>>$file_path
+validate $status "Installing nginx "
 #status=$?
 
 #output--> sudo less /path.sh
