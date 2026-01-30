@@ -38,7 +38,7 @@ do
     fi
 
 done
-dnf install  nginx -y &>>$file_path
+dnf install  nginxxx -y &>>$file_path
 #validate $status "Installing nginx "
 #status=$?
 
