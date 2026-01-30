@@ -15,11 +15,11 @@ mkdir -p $directory
 
 validate(){
     if (($? != 0)); then
-    echo "exit code $status, means failure" | tee -a $file_path
+    echo "exit code $1, means $2 installation failure" | tee -a $file_path
     exit 1
 
 else
-    echo "status code $status, means successfull" | tee -a $file_path
+    echo "status code $1, so $2 installationmeans successfull" | tee -a $file_path
 
 fi
 
