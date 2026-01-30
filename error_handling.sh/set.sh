@@ -1,10 +1,11 @@
-#! /bin/bash
+#!/bin/bash
 directory="/var/log/scrip-logs"
 file_path=$directory"/$0.log"
 #status=$?
-
+echo "executing"
 set -e # checks error . if found it will exit. return error code ERR to kernal in background
 uid=$(id -u)
+
 
 if ((uid !=0)); then
     echo "run as root user" | tee -a $file_path
