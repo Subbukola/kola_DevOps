@@ -14,7 +14,7 @@ mkdir -p $directory
 
 
 validate(){
-    if (($? != 0)); then
+    if (($1 != 0)); then
     echo "exit code $1, means $2 installation failure" | tee -a $file_path
     exit 1
 
