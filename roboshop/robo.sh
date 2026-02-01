@@ -21,7 +21,7 @@ do
         echo "Instance ID: $INSTANCE_ID"
         echo "Instance name : $INSTANCE"
 
-    if (( $INSTANCE == "frontend")); then
+    if [$INSTANCE == "frontend"]; then
         IP=$(
         aws ec2 describe-instances --instance-ids $INSTANCE_ID \
         --query 'Reservations[].Instances[].PublicIpAddress' \
@@ -33,7 +33,7 @@ do
     else 
         IP=$(
         aws ec2 describe-instances --instance-ids $INSTANCE_ID \
-        --query 'Reservations[]Instances[].PrivateIpAddress' \
+        --query 'Reservations[].Instances[].PrivateIpAddress' \
         --output text
         )
       echo "private_IP= $IP'" 
