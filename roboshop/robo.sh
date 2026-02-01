@@ -17,6 +17,7 @@ do
         --output text
         )
         echo "Instance ID: $INSTANCE_ID"
+        echo "Instance name : $INSTANCE"
 
     if (( $INSTANCE == frontend)); then
         PUBLIC_IP=$(
