@@ -7,7 +7,8 @@ SECURITY_GROUP_ID=sg-0905f25e83735d3d2
 for INSTANCE in $@
 do
 
-    INSTANCE_ID= $(aws ec2 run-instances \
+    INSTANCE_ID=$(
+        aws ec2 run-instances \
         --image-id $IMAGE_ID \
         --instance-type t3.micro \
         --security-group-ids $SECURITY_GROUP_ID \
@@ -18,7 +19,7 @@ do
 
 
     if (( $INSTANCE == frontend)); then
-        PUBLIC_IP= $(
+        PUBLIC_IP=$(
         aws ec2 describe-instances --instance-ids $INSTANCE_ID \
         --query '.Instances[0].PublicIpAddress' \
         --output text
@@ -26,7 +27,7 @@ do
       echo "public_IP= $PUBLIC_IP'"  
 
     else 
-        PRIVATE_IP= $(
+        PRIVATE_IP=$(
         aws ec2 describe-instances --instance-ids $INSTANCE_ID \
         --query '.Instances[0].PrivateIpAddress' \
         --output text
