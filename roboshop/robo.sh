@@ -21,7 +21,7 @@ do
     if (( $INSTANCE == frontend)); then
         PUBLIC_IP=$(
         aws ec2 describe-instances --instance-ids $INSTANCE_ID \
-        --query '.Instances[0].PublicIpAddress' \
+        --query 'Instances[0].PublicIpAddress' \
         --output text
         )
       echo "public_IP= $PUBLIC_IP'"  
@@ -29,7 +29,7 @@ do
     else 
         PRIVATE_IP=$(
         aws ec2 describe-instances --instance-ids $INSTANCE_ID \
-        --query '.Instances[0].PrivateIpAddress' \
+        --query 'Instances[0].PrivateIpAddress' \
         --output text
         )
       echo "private_IP= $PRIVATE_IP_IP'" 
