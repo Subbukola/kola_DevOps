@@ -19,11 +19,11 @@ mkdir -p $directory
 
 validate(){
     if (($1 != 0)); then
-    echo "exit code  $1, means $2 $RED failure" $NORMAL | tee -a $file_path
+    echo "exit code  $1, means $2 $(RED) failure" $(NORMAL) | tee -a $file_path
     exit 1
 
 else
-    echo "status code $1, so $2 $GREEN successfull" $NORMAL | tee -a $file_path
+    echo "status code $1, so $2 $(GREEN) successfull" $(NORMAL) | tee -a $file_path
 
 fi
 
