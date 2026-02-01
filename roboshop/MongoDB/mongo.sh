@@ -29,6 +29,9 @@ fi
 
 }
 
+cp mongo.repo /etc/yum.repos.d/mongo.repo &>>$file_path
+validate $? "copying repo"
+
 dnf install mongodb-org -y &>>$file_path
 validate $? "mingoDB Installation"
 
