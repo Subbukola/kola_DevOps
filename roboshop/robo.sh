@@ -12,16 +12,16 @@ do
         --image-id $IMAGE_ID \
         --instance-type t3.micro \
         --security-group-ids $SECURITY_GROUP_ID \
-        --query 'Instances[0].InstanceId' \
+        --query 'Instances[].InstanceId' \
         --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value='$INSTANCE'}]' \
         --output text
         )
-
+        echo "Instance ID: $INSTANCE_ID"
 
     if (( $INSTANCE == frontend)); then
         PUBLIC_IP=$(
         aws ec2 describe-instances --instance-ids $INSTANCE_ID \
-        --query 'Instances[0].PublicIpAddress' \
+        --query 'Reservations[].Instances[].PublicIpAddress' \
         --output text
         )
       echo "public_IP= $PUBLIC_IP'"  
@@ -29,7 +29,7 @@ do
     else 
         PRIVATE_IP=$(
         aws ec2 describe-instances --instance-ids $INSTANCE_ID \
-        --query 'Instances[0].PrivateIpAddress' \
+        --query 'Reservations[]Instances[].PrivateIpAddress' \
         --output text
         )
       echo "private_IP= $PRIVATE_IP_IP'" 
