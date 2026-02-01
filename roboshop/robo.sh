@@ -12,7 +12,7 @@ do
         --instance-type t3.micro \
         --security-group-ids $SECURITY_GROUP_ID \
         --query 'Instances[0].InstanceId' \
-        --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value='$INSTANCE'}]'
+        --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value='$INSTANCE'}]' \
         --output text
         )
 
