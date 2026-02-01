@@ -2,6 +2,8 @@
 
 IMAGE_ID=ami-0220d79f3f480ecf5
 SECURITY_GROUP_ID=sg-0905f25e83735d3d2
+HOSTED_ZONE_ID=Z10262718FD0B5C9MRAM
+DOMAIN_NAME=kola88.online
 
 
 for INSTANCE in $@
@@ -19,26 +21,43 @@ do
         echo "Instance ID: $INSTANCE_ID"
         echo "Instance name : $INSTANCE"
 
-    if (( $INSTANCE == frontend)); then
-        PUBLIC_IP=$(
+    if (( $INSTANCE == "frontend")); then
+        IP=$(
         aws ec2 describe-instances --instance-ids $INSTANCE_ID \
         --query 'Reservations[].Instances[].PublicIpAddress' \
         --output text
         )
-      echo "public_IP= $PUBLIC_IP'"  
+      echo "public_IP= $IP'"  
+      HOSTED_RECORD="$DOMAIN_NAME"
 
     else 
-        PRIVATE_IP=$(
+        IP=$(
         aws ec2 describe-instances --instance-ids $INSTANCE_ID \
         --query 'Reservations[]Instances[].PrivateIpAddress' \
         --output text
         )
-      echo "private_IP= $PRIVATE_IP_IP'" 
+      echo "private_IP= $IP'" 
+      HOSTED_RECORD="$INSTANCE.$DOMAIN_NAME"
 
     fi
+    aws route53 change-resource-record-sets \
+  --hosted-zone-id $HOSTED_ZONE_ID \
+  --change-batch '{
+    "Changes": [
+      {
+        "Action": "UPSERT",
+        "ResourceRecordSet": {
+          "Name": "'$HOSTED_RECORD'",
+          "Type": "A",
+          "TTL": 1,
+          "ResourceRecords": [
+            { "Value": "'$IP'" }
+          ]
+        }
+      }
+    ]
+  }'
+
 
 done
     
-#aws ec2 describe-instances --instance-ids <your_instance_id> \
- #--query 'Reservations[*].Instances[*].PublicIpAddress' \
-#  --output text
