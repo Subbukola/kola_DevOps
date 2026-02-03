@@ -1,5 +1,9 @@
 #! /bin/bash
 
+#1 means success output ls -l 1
+#0 fail output or error ls -l 0
+# for anything  ls -l &
+
 uid=$(id -u)
 
 if ((uid !=0)); then
