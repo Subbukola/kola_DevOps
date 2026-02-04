@@ -36,7 +36,7 @@ if [ -z "$FILES" ]; then
 else
     echo -e  " ${G} --- FILES FOUND FOR BACKUP--- ${N} "
     timestamp=$(date +%F_%H-%M-%S)
-    Backup_zip_files="$destination_dir/app_log$timestamp.tar.gz"
+    Backup_zip_files="$destination_dir/app_log_$timestamp.tar.gz"
     echo -e " ${Y} archieving files ${N}"
     tar -zcvf $Backup_zip_files $FILES
 fi
@@ -44,7 +44,7 @@ fi
 #-----------------------------------------------------
 
 #check stats code and see output
-if [ $? ne 0 ]; then
+if [ $? -ne 0 ]; then
     echo -e " ${R} looks something is wrong ${N}"
 
 else
