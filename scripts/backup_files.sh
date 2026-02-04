@@ -39,7 +39,8 @@ else
     Backup_zip_files="$destination_dir/app_log_$timestamp.tar.gz"
     echo -e " ${Y} archieving files ${N}"
     cd "$source_dir" 
-    tar -czvf $Backup_zip_files $(find "$source_dir" -name "*.log" -type f -mtime +$days)
+    tar -czvf $Backup_zip_files $(find . -name "*.log" -type f -mtime +$days)
+    #tar -czvf $Backup_zip_files $(find "$source_dir" -name "*.log" -type f -mtime +$days)
 fi
 
 #-----------------------------------------------------
