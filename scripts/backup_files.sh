@@ -22,6 +22,6 @@ else
 
 fi
 #----------------------------------------------------------------------------
-mkdir -p $source_dir
-mkdir -p $destination_dir
+mkdir -p "$source_dir"
+mkdir -p "$destination_dir"
 
