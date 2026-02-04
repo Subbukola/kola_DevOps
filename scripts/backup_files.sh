@@ -44,11 +44,11 @@ fi
 #-----------------------------------------------------
 
 #check stats code and see output
-if [ $? ne 0]; then
+if [ $? ne 0 ]; then
     echo -e " ${R} looks something is wrong ${N}"
 
 else
-    echo -e " ${R} backup done ${N}"
+    echo -e " ${G} backup done ${N}"
 fi
 
 
