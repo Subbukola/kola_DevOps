@@ -31,13 +31,13 @@ mkdir -p "$destination_dir"
 FILES=$(find "$source_dir" -name "*.log" -type f -mtime +$days)
 
 if [ -z $FILES]; then
-    echo " ${R} no files to take backup${N} "
+    echo -e " ${R} no files to take backup${N} "
     exit 1
 else
-    echo " ${G}--- FILES FOUND FOR BACKUP---{N} "
+    echo -e  " ${G} --- FILES FOUND FOR BACKUP--- ${N} "
     timestamp=$(date +%F_%H-%M-%S)
     Backup_zip_files="$destination_dir/app_log.tar.gz"
-    echo " ${Y} archieving files ${N}"
+    echo -e " ${Y} archieving files ${N}"
     tar -zcvf $Backup_zip_files$(find $source_dir -type f -name " *.log" -mtime $days )
 fi
 
