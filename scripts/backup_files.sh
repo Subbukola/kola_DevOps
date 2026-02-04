@@ -10,6 +10,8 @@ Y="\e[33m"
 source_dir="/var/log/backup"
 destination_dir="/home/root/backup_logs"
 
+days=${3:-14}
+
 #step-1 --> to check user is root or not
 
 if [ $user_id -ne 0 ]; then
@@ -24,4 +26,9 @@ fi
 #----------------------------------------------------------------------------
 mkdir -p "$source_dir"
 mkdir -p "$destination_dir"
+#------------------------------------------------------------------------------
+
+FILES=$(find "$source_dir" -name "*.log" -type f -mtime +$days)
+echo "$FILES"
+
 
