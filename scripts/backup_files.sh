@@ -38,7 +38,8 @@ else
     timestamp=$(date +%F_%H-%M-%S)
     Backup_zip_files="$destination_dir/app_log_$timestamp.tar.gz"
     echo -e " ${Y} archieving files ${N}"
-    tar -zcf $Backup_zip_files $(find "$source_dir" -name "*.log" -type f -mtime +$days)
+
+    tar -czvf $Backup_zip_files $(find "$source_dir" -name "*.log" -type f -mtime +$days)
 fi
 
 #-----------------------------------------------------
@@ -57,6 +58,6 @@ if [ -f $Backup_zip_files ]; then
     echo -e " ${G} Archieve done ${N}"
 
 fi
-echo "$destination_dir"
+echo "check folder ro see backup: $destination_dir"
 #-----------------------------------------------------------------------------
 
