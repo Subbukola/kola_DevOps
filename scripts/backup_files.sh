@@ -1,6 +1,6 @@
 #!/bin/bash
 
-user_id="$(id)"
+user_id="$(id -u)"
 R='\033[0;31m'
 N='\033[0;37m'
 
