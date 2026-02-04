@@ -8,11 +8,11 @@ Y="\e[33m"
 
 
 if [ $user_id -ne 0 ]; then
-    echo " '$R' You are not authorized to perform this task '$N' "
+    echo " ${R} You are not authorized to perform this task  ${N} "
 
 else
 
-    echo " '$G' You are  authorized to perform this task '$N' "
+    echo " ${G} You are  authorized to perform this task ${N} "
 
 
 fi
