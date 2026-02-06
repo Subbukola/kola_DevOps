@@ -1,0 +1,18 @@
+---
+- name: subbu 
+  age: 24
+  role: DevOps_Engineer
+  - Address:
+    - Current_address:
+      d.no: 123
+      area: abc
+      street: xyz
+      pincode: 000000
+
+    - permanent_address:
+      d.no: 123
+      area: abc
+      street: xyz
+      pincode: 000000
+
+    
