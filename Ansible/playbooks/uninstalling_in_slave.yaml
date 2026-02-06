@@ -1,0 +1,9 @@
+---
+- hosts: slave1
+  become: yes
+  
+  tasks:
+  - name: uninstalling nginx
+    ansible.builtin.package:
+      name: nginx
+      state: present
