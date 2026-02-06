@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  become: yes
+  
+  tasks:
+    - name: printing hello world
+      ansible.builtin.debug:
+        msg: Hello world
+        
