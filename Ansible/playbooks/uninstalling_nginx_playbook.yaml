@@ -3,7 +3,7 @@
   become: yes
   
   tasks:
-  - name: installing nginx
+  - name: uninstalling nginx
     ansible.builtin.package:
       name: nginx
       state: absent
