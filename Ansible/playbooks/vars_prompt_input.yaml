@@ -1,0 +1,30 @@
+---
+- hosts: slave2
+  become: yes
+
+  vars_prompt:
+    - name: package
+      prompt: Enter package name
+      private: false
+
+    - name: state_of_package
+      prompt: what is state--> starting or stopping ?
+      private: false
+
+    - name: status_of_package
+      promt: starting or stopping or restart
+      private: false
+  
+  tasks:
+  - name: installing {{ package }}
+    ansible.builtin.package:
+      name: "{{ package }}"
+      state: "{{ state_of_package }}"
+    
+  - name: staring and enabling {{ package_installing }}
+    ansible.builtin.service:
+      name: "{{ package }}"
+      state: "{{ status_of_package }}"  # Ensures the service is running
+      enabled: true   # Ensures the service starts on boot
+
+        
