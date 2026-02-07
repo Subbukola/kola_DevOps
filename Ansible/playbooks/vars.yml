@@ -1,1 +1,1 @@
-package_installing=docker
+package_installing: docker

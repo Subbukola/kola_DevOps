@@ -3,16 +3,18 @@
   become: yes
 
   vars_files:
-    vars.yml
+    - vars.yml
   
   tasks:
   - name: installing {{ package_installing }}
     ansible.builtin.package:
-      name: {{ package_installing }}
+      name: "{{ package_installing }}"
       state: present
     
   - name: staring and enabling {{ package_installing }}
     ansible.builtin.service:
-        name: {{ package_installing }}
-        state: started  # Ensures the service is running
-        enabled: true   # Ensures the service starts on boot
+      name: "{{ package_installing }}"
+      state: started  # Ensures the service is running
+      enabled: true   # Ensures the service starts on boot
+
+        
