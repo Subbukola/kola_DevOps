@@ -8,11 +8,11 @@
       private: false
 
     - name: state_of_package
-      prompt: what is state--> starting or stopping ?
+      prompt: what is state?
       private: false
 
     - name: status_of_package
-      promt: starting or stopping or restart
+      promt: enter status
       private: false
   
   tasks:
