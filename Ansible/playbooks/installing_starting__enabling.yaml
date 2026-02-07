@@ -1,0 +1,14 @@
+---
+- hosts: slave1
+  become: yes
+  
+  tasks:
+  - name: installing nginx
+    ansible.builtin.package:
+      name: nginx
+      state: present
+      
+    ansible.builtin.service:
+        name: nginx
+        state: started  # Ensures the service is running
+        enabled: true   # Ensures the service starts on boot
