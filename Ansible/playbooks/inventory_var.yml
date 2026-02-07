@@ -1,0 +1,10 @@
+---
+- hosts: slave2
+  become: yes
+
+  tasks:
+    - name: uninstalling service using inventory variable
+      ansible.builtin.package:
+        name: {{ app }}
+        state: absent
+     
