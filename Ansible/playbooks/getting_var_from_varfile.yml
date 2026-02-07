@@ -11,9 +11,9 @@
       name: "{{ package_installing }}"
       state: present
     
-  - name: staring and enabling {{ package_installing }}
+  - name: staring and enabling {{ service }}
     ansible.builtin.service:
-      name: "{{ package_installing }}"
+      name: "{{ service }}"
       state: started  # Ensures the service is running
       enabled: true   # Ensures the service starts on boot
 
