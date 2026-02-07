@@ -5,6 +5,6 @@
   tasks:
     - name: uninstalling service using inventory variable
       ansible.builtin.package:
-        name: {{ app }}
+        name: "{{ app }}"
         state: absent
      
