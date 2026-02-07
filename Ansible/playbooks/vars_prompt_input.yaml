@@ -21,10 +21,10 @@
       name: "{{ package }}"
       state: "{{ state_of_package }}"
     
-  - name: staring and enabling {{ package }}
-    ansible.builtin.service:
-      name: "{{ package }}"
-      state: "{{ status_of_package }}"  # Ensures the service is running
-      enabled: true   # Ensures the service starts on boot
+  # - name: staring and enabling {{ package }}
+  #   ansible.builtin.service:
+  #     name: "{{ package }}"
+  #     state: "{{ status_of_package }}"  # Ensures the service is running
+  #     enabled: true   # Ensures the service starts on boot
 
         
