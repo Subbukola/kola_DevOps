@@ -8,11 +8,11 @@
       private: false
 
     - name: state_of_package
-      prompt: what is state?
+      prompt: what is package state(present/absent/latest)?
       private: false
 
     - name: status_of_package
-      promt: enter status
+      prompt: enter status(started/stopped/restarted)?
       private: false
   
   tasks:
@@ -21,7 +21,7 @@
       name: "{{ package }}"
       state: "{{ state_of_package }}"
     
-  - name: staring and enabling {{ package_installing }}
+  - name: staring and enabling {{ package }}
     ansible.builtin.service:
       name: "{{ package }}"
       state: "{{ status_of_package }}"  # Ensures the service is running
