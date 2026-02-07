@@ -11,12 +11,12 @@
       prompt: what is package state(present/absent/latest)?
       private: false
 
-    - name: status_of_package
-      prompt: enter status(started/stopped/restarted)?
-      private: false
+    # - name: status_of_package
+    #   prompt: enter status(started/stopped/restarted)?
+    #   private: false
   
   tasks:
-  - name: installing {{ package }}
+  - name: uninstalling {{ package }}
     ansible.builtin.package:
       name: "{{ package }}"
       state: "{{ state_of_package }}"
