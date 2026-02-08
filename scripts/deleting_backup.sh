@@ -63,7 +63,7 @@ if [ -f $Backup_zip_files ]; then
         echo "Deleting file: $filepath"
         rm -f $filepath
         echo "Deleted file: $filepath"
-        done <<< $Backup_zip_files
+        done <<< $FILES
 
 else
     echo " deletion failed"
