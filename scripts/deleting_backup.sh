@@ -60,9 +60,9 @@ if [ -f $Backup_zip_files ]; then
 
      while IFS= read -r filepath; do
         # Process each line here
-        log "Deleting file: $filepath"
+        echo "Deleting file: $filepath"
         rm -f $filepath
-        log "Deleted file: $filepath"
+        echo "Deleted file: $filepath"
         done <<< $Backup_zip_files
 
 else
