@@ -5,7 +5,7 @@
   
   tasks:
   - name: ansible_builtin_command
-    ansible.builtin.command: systemctl status ansible  # don't support | and >. only outer env
+    ansible.builtin.command: netstat -lntp  # don't support | and >. only outer env
     register: builtin_command_output
 
   - name: printing  command output
