@@ -1,0 +1,15 @@
+---
+- hosts: local
+  become: yes
+  connection: local
+
+  vars:
+    count: 4
+  
+  tasks:
+  - name: conditions playbook
+    ansible.builtin.debug:
+        msg: while executed
+    when: count > 2  
+
+        
