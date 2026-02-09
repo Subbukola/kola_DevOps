@@ -6,7 +6,7 @@
   tasks:
   - name: example for loops
     ansible.builtin.package:
-      name: "{{ item }}"
+      name: "{{ item }}"  # item is default value for loops
       state: present
     loop:
       - nginx

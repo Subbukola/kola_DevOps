@@ -1,0 +1,10 @@
+---
+- hosts: local
+  become: yes
+
+  
+  tasks:
+  - name: default value
+    ansible.builtin.debug:
+      msg: "Hi {{GREETING | default(" welcome ")}}"
+    
