@@ -14,7 +14,7 @@
 
 
   - name: ansible_builtin_shell
-    ansible.builtin.shell: netstat -lntp | grep root #to check internal env
+    ansible.builtin.shell: cd /etc/passwd | grep root #to check internal env
     register: builtin_shell_output
 
   - name: printing shell output
