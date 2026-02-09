@@ -6,17 +6,15 @@
   tasks:
   - name: ansible_builtin_command
     ansible.builtin.command: systemctl status ansible  # don't support | and >. only outer env
-      #msg: "checking builtin.comand"
     register: builtin_command_output
 
-  -name: printing  commandoutput
+  - name: printing  command output
     ansible.builtin.debug:
       msg: printing output '{{ builtin_command_output }}'
 
 
   - name: ansible_builtin_shell
     ansible.builtin.shell: netstat -lntp | grep root #to check internal env
-      #msg: "checking builtin.shell"
     register: builtin_shell_output
 
   - name: printing shell output
