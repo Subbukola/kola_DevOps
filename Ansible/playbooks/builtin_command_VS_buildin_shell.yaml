@@ -10,7 +10,7 @@
     register: builtin_command_output
 
     ansible.builtin.debug:
-      msg: printing output '{{ builtin_command_output }}'
+      msg: "{{ builtin_command_output }}"
 
 
   # - name: ansible_builtin_shell
