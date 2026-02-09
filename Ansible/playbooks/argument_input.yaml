@@ -6,7 +6,7 @@
   tasks:
   - name: passing input dynamically while executing
     ansible.builtin.debug:
-        msg: "Hello {{ 'country' }}"
+        msg: "Hello {{ fruit }}"
       
 
         
