@@ -1,0 +1,13 @@
+---
+- hosts: local
+  become: yes
+  connection: local
+  
+  tasks:
+  - name: example for loops
+    ansible.builtin.package:
+      name: "{{ item }}"
+      state: present
+    loop:
+      - nginx
+      - httpd
