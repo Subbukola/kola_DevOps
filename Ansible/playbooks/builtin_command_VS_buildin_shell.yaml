@@ -4,7 +4,7 @@
   connection: local
   
   tasks:
-  - name: ansible builtin.command
+  - name: ansible_builtin_command
     ansible.builtin.command: 
       cmd: systemctl status ansible  # don't support | and >. only outer env
       msg: "checking builtin.comand"
@@ -14,7 +14,7 @@
       msg: printing output '{{ builtin_command_output }}'
 
 
-  - name: ansible builtin.shell
+  - name: ansible_builtin_shell
     ansible.builtin.shell: 
       cmd: netstat -lntp | root #to check internal env
       msg: "checking builtin.shell"
