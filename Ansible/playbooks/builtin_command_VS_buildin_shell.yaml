@@ -9,17 +9,19 @@
       #msg: "checking builtin.comand"
     register: builtin_command_output
 
+  -name: printing  commandoutput
     ansible.builtin.debug:
-      msg: "{{ builtin_command_output }}"
+      msg: printing output '{{ builtin_command_output }}'
 
 
-  # - name: ansible_builtin_shell
-  #   ansible.builtin.shell: netstat -lntp | grep root #to check internal env
-  #     #msg: "checking builtin.shell"
-  #   register: builtin_shell_output
+  - name: ansible_builtin_shell
+    ansible.builtin.shell: netstat -lntp | grep root #to check internal env
+      #msg: "checking builtin.shell"
+    register: builtin_shell_output
 
-  #   ansible.builtin.debug:
-  #     msg: printing output '{{ builtin_shell_output }}'
+  - name: printing shell output
+    ansible.builtin.debug:
+      msg: printing output '{{ builtin_shell_output }}'
     
 
         
