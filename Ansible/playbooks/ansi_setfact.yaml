@@ -1,0 +1,10 @@
+---
+- hosts: local
+  become: yes
+  connection: local
+
+  tasks:
+    - name: checkning ansible set facts data
+      ansible.builtin.debug:
+        msg: "{{ ansible_facts }}"
+
