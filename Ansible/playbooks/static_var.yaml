@@ -1,0 +1,13 @@
+---
+- hosts: slave2
+  become: yes
+
+  vars:
+    app: docker
+  
+  
+  tasks:
+  - name: installing nginx
+    ansible.builtin.package:
+      name: {{ app }}
+      state: present

@@ -1,0 +1,23 @@
+---
+- hosts: local
+  become: yes
+  
+  vars:
+    NAME: "subbu from variable section"
+
+  vars_files:
+    - vars.yml
+
+  vars_prompt:
+    - name: NAME
+      prompt: enter name
+      private: false
+
+
+
+  tasks:
+  vars:
+    NAME: "subbu from tasks variable section"
+  - name: checking variable priority
+    ansible.builtin.debug:
+      msg: "name came from '{{ NAME }}'"

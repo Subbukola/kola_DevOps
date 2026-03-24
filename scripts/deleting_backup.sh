@@ -16,6 +16,7 @@ days=${1:-14}
 
 if [ $user_id -ne 0 ]; then
     echo -e " ${R} You are not authorized to perform this task  ${N} "
+    exit 1
 
 else
 
@@ -30,7 +31,7 @@ mkdir -p "$destination_dir"
 
 FILES=$(find "$source_dir" -name "*.log" -type f -mtime +$days)
 
-if [ -z "$FILES" ]; then
+if [ -z "$FILES" ]; then # checks if file is empty
     echo -e " ${R} no files to take backup${N} "
     exit 1
 else
